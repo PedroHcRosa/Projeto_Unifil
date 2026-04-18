@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Documentation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,900&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #DB93FD, #835897);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    width: 85%;
+    max-width: 900px;
+    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+
+    border: 3px solid rgba(255,255,255,0.6);
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area img {
+    width: 70px;
+}
+
+.nav a {
+    background: #AE00FF;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.titulo {
+    font-family: 'Source Serif Pro';
+    font-size: 50px;
+    font-style: italic;
+}
+
+.texto {
+    font-size: 18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="card">
+
+<div class="topo">
+
+<div class="logo-area">
+<img src="{{ url_for('static', filename='img/QuarereVerum.png') }}">
+</div>
+
+<div class="nav">
+<a href="/">Homepage</a>
+</div>
+
+</div>
+
+<h1 class="titulo">Documentação</h1>
+
+<div class="texto">
+<p>https://github.com/PedroHcRosa/Projeto_Unifil</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

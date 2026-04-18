@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarere Verum</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-home">
+
+    <div class="glass-card">
+
+        <!-- NAVBAR -->
+        <header class="topo fade-in fade-in-delay-1">
+
+            <div class="logo-area">
+                <img src="{{ url_for('static', filename='img/QuarereVerum.png') }}" class="logo-img">
+
+                <div class="logo-text">
+                    <h2>Quarere Verum</h2>
+                    <p>DETECÇÃO DE FAKE NEWS</p>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/sobre">sobre nós</a>
+                <span class="dot"></span>
+                <a href="/documentation">Documentação</a>
+                <span class="dot"></span>
+                <a href="/fakenews">Fake News</a>
+            </nav>
+
+        </header>
+
+        <!-- CONTEÚDO -->
+        <section class="fundo-roxo">
+
+            <div class="content">
+
+                <!-- ESQUERDA -->
+                <div class="left fade-in fade-in-delay-2">
+                    <h1>Insira Sua<br>Noticia Ou<br>Dúvida</h1>
+
+                    <h3>
+                        Insira uma URL começada com "Https" ou realize
+                        uma pergunta sobre alguma informação que você gostaria de verificar
+                    </h3>
+
+                    <form action="/check" method="POST">
+                        <input class="txtArea" type="text" name="text" placeholder="Digite aqui...">
+                        <br>
+                        <button class="buttonArea" type="submit">ENVIAR</button>
+                    </form>
+                </div>
+
+                <!-- DIREITA -->
+                <div class="right fade-in fade-in-delay-3">
+                    <img src="{{ url_for('static', filename='img/hoax.png') }}">
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>

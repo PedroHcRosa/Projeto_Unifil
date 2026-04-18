@@ -4,3 +4,5 @@ requests
 google-generativeai
 newspaper3k
 gunicorn
+lxml[html-clean]
+lxml_html_clean

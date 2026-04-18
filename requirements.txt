@@ -3,4 +3,4 @@ python-dotenv
 requests
 google-generativeai
 newspaper3k
-gunicorn==21.x.x
+gunicorn

@@ -34,6 +34,7 @@
 - [Limitações Conhecidas](#-limitações-conhecidas)
 - [Boas Práticas e Convenções](#-boas-práticas-e-convenções)
 - [FAQ](#-faq)
+- [Deploy / Demonstração Online](#-deploy--demonstração-online)
 - [Autor](#-autor)
 
 ---
@@ -317,6 +318,29 @@ Apesar de uma boa taxa de acerto, para assuntos mais complexos e ambiguos, o res
 passivel de melhora, por isso, o próprio sistema recomenda fontes confiáveis e credenciadas para maiores informações
 
 ---
+## Deploy / Demonstração Online
+
+🔗 **Acesse o projeto em produção:** [https://projeto-unifil.onrender.com/](https://projeto-unifil.onrender.com/)
+
+A aplicação está hospedada no **[Render](https://render.com/)**, plataforma de PaaS (*Platform as a Service*) escolhida
+para o deploy deste projeto acadêmico.
+
+### Por que o Render?
+
+- **Gratuito e sem cartão de crédito:** ideal para um projeto acadêmico, sem custos para manter o ambiente no ar.
+- **Deploy direto do GitHub:** basta conectar o repositório e o Render identifica automaticamente que é uma aplicação
+  Python/Flask, instalando as dependências via `requirements.txt` e iniciando com `gunicorn`.
+- **Suporte nativo a variáveis de ambiente:** permite configurar `GEMINI_API_KEY` e `GOOGLE_FACTCHECK_API_KEY` de
+  forma segura, sem expor as chaves no código-fonte.
+- **HTTPS automático:** o Render já entrega o site com certificado TLS configurado, sem necessidade de configuração manual.
+- **Simplicidade de configuração:** não foi necessário escrever Dockerfile nem configurar infraestrutura complexa —
+  apenas `Build Command` e `Start Command`.
+
+### ⚠️ Limitações do plano gratuito (Free Tier)
+
+| Limitação | Impacto no projeto |
+|---|---|
+| **Spin down por inatividade** | O serviço "dorme" após **15 minutos sem requisições**. A primeira requisição depois disso pode levar de **30 a 60 segundos**
 
 ## 👤 Autor
 

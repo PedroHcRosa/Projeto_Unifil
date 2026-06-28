@@ -13,6 +13,7 @@
   cruza a informação com o <strong>Google Fact Check Tools API</strong> e utiliza a <strong>IA generativa do Google Gemini</strong>
   como camada de análise complementar (fallback), retornando um veredito (<em>Verdadeiro</em>, <em>Falso</em> ou <em>Inconclusivo</em>)
   e mantendo um histórico persistido em banco de dados <strong>SQLite</strong>.
+  **Acesse o projeto em produção:** [https://projeto-unifil.onrender.com/](https://projeto-unifil.onrender.com/)
 </p>
 
 ---

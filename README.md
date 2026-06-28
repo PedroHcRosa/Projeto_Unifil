@@ -26,20 +26,14 @@
 - [Stack Tecnológica](#-stack-tecnológica)
 - [Estrutura de Pastas](#-estrutura-de-pastas)
 - [Pré-requisitos](#-pré-requisitos)
-- [Instalação](#-instalação)
 - [Configuração (Variáveis de Ambiente)](#-configuração-variáveis-de-ambiente)
-- [Como Executar](#-como-executar)
 - [Rotas da Aplicação](#-rotas-da-aplicação)
 - [Modelo de Dados](#-modelo-de-dados)
 - [Detalhamento dos Serviços](#-detalhamento-dos-serviços)
 - [Fluxo de Decisão do Veredito](#-fluxo-de-decisão-do-veredito)
-- [Deploy em Produção](#-deploy-em-produção)
-- [Roadmap](#-roadmap)
 - [Limitações Conhecidas](#-limitações-conhecidas)
-- [Contribuindo](#-contribuindo)
 - [Boas Práticas e Convenções](#-boas-práticas-e-convenções)
 - [FAQ](#-faq)
-- [Licença](#-licença)
 - [Autor](#-autor)
 
 ---
@@ -184,7 +178,7 @@ Como pré-requisitos antes de desenvolver a aplicação tive que adquirir as seg
 - **pip** (gerenciador de pacotes do Python)
 - Uma **chave de API do Google Gemini** ([Google AI Studio](https://aistudio.google.com/app/apikey))
 - Uma **chave de API do Google Fact Check Tools** (via [Google Cloud Console](https://console.cloud.google.com/))
-- (Opcional) **virtualenv** ou **venv** para isolar as dependências
+- **virtualenv** ou **venv** para isolar as dependências
 
 ---
 

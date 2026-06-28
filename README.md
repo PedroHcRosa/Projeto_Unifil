@@ -7,13 +7,15 @@
   <img src="https://img.shields.io/badge/Google%20Gemini-API-4285F4?style=for-the-badge&logo=google&logoColor=white" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
-
+<p align="center">
+  🔗 <strong><a href="https://projeto-unifil.onrender.com/">Acesse o site em produção</a></strong>
+</p>
 <p align="center">
   Aplicação web desenvolvida em <strong>Flask</strong> que recebe um texto ou link de notícia, extrai o conteúdo,
   cruza a informação com o <strong>Google Fact Check Tools API</strong> e utiliza a <strong>IA generativa do Google Gemini</strong>
   como camada de análise complementar (fallback), retornando um veredito (<em>Verdadeiro</em>, <em>Falso</em> ou <em>Inconclusivo</em>)
   e mantendo um histórico persistido em banco de dados <strong>SQLite</strong>.
-  **Acesse o projeto em produção:** [https://projeto-unifil.onrender.com/](https://projeto-unifil.onrender.com/)
+  
 </p>
 
 ---

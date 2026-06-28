@@ -1,4 +1,4 @@
-# 📰 Projeto Unifil — Sistema de Verificação de Fake News
+# Projeto Unifil — Sistema de Verificação de Fake News
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -17,7 +17,7 @@
 
 ---
 
-## 📑 Sumário
+## Sumário
 
 - [Visão Geral](#-visão-geral)
 - [Motivação](#-motivação)
@@ -44,7 +44,7 @@
 
 ---
 
-## 🔎 Visão Geral
+## Visão Geral
 
 O **Projeto Unifil** é uma aplicação web de **checagem de fatos (fact-checking)** criada como projeto acadêmico para a
 **Universidade Filadélfia (UNIFIL)**. O sistema permite que o usuário insira:
@@ -63,7 +63,7 @@ A aplicação então:
 
 ---
 
-## 🎯 Motivação
+## Motivação
 
 A desinformação (*fake news*) é um dos maiores desafios da era digital, impactando desde a saúde pública até processos
 democráticos. Este projeto nasce da proposta acadêmica de explorar como **APIs de verificação de fatos** e **modelos de
@@ -73,7 +73,7 @@ checagem, mas servindo como ferramenta de apoio e conscientização.
 
 ---
 
-## 🧭 Demonstração do Fluxo
+## Demonstração do Fluxo
 
 ```mermaid
 flowchart TD
@@ -95,7 +95,7 @@ flowchart TD
 
 ---
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 A aplicação segue uma arquitetura **monolítica simples**, no padrão **MVC adaptado ao Flask**, dividida em camadas
 bem definidas:
@@ -127,7 +127,7 @@ bem definidas:
 
 ---
 
-## 🧰 Stack Tecnológica
+## Stack Tecnológica
 
 | Categoria | Tecnologia |
 |---|---|
@@ -146,7 +146,7 @@ bem definidas:
 
 ---
 
-## 📁 Estrutura de Pastas
+## Estrutura de Pastas
 
 ```
 Projeto_Unifil/
@@ -176,9 +176,9 @@ Projeto_Unifil/
 
 ---
 
-## ✅ Pré-requisitos
+## Pré-requisitos
 
-Antes de começar, certifique-se de ter instalado:
+Como pré-requisitos antes de desenvolver a aplicação tive que adquirir as seguintes ferramentas:
 
 - **Python 3.10 ou superior**
 - **pip** (gerenciador de pacotes do Python)
@@ -188,25 +188,6 @@ Antes de começar, certifique-se de ter instalado:
 
 ---
 
-## ⚙️ Instalação
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/PedroHcRosa/Projeto_Unifil.git
-cd Projeto_Unifil
-
-# 2. Crie e ative um ambiente virtual
-python -m venv venv
-
-# Linux / macOS
-source venv/bin/activate
-
-# Windows
-venv\Scripts\activate
-
-# 3. Instale as dependências
-pip install -r requirements.txt
-```
 
 ### Dependências (`requirements.txt`)
 
@@ -220,53 +201,7 @@ gunicorn
 lxml[html-clean]
 lxml_html_clean
 ```
-
----
-
-## 🔐 Configuração (Variáveis de Ambiente)
-
-O projeto utiliza `python-dotenv` para carregar variáveis sensíveis. Crie um arquivo **`.env`** na raiz do projeto
-(esse arquivo **não** deve ser commitado — verifique se ele está listado no `.gitignore`):
-
-```env
-# Chave da API do Google Gemini (IA generativa)
-GEMINI_API_KEY=sua_chave_aqui
-
-# Chave da API do Google Fact Check Tools
-GOOGLE_FACTCHECK_API_KEY=sua_chave_aqui
-
-# (Opcional) Porta de execução local
-PORT=5000
-```
-
-> ⚠️ **Importante:** nunca exponha suas chaves de API em repositórios públicos. Utilize sempre variáveis de ambiente
-> ou serviços de *secrets management* em produção.
-
----
-
-## ▶️ Como Executar
-
-### Modo de desenvolvimento
-
-```bash
-python app.py
-```
-
-A aplicação iniciará em modo *debug* (configurado em `app.run(debug=True)`), por padrão em:
-
-```
-http://127.0.0.1:5000
-```
-
-### Modo de produção (com Gunicorn)
-
-```bash
-gunicorn app:app --bind 0.0.0.0:8000 --workers 4
-```
-
----
-
-## 🌐 Rotas da Aplicação
+## Rotas da Aplicação
 
 | Método | Rota | Descrição |
 |---|---|---|
@@ -293,7 +228,7 @@ curl -X POST http://127.0.0.1:5000/check \
 
 ---
 
-## 🗄️ Modelo de Dados
+## Modelo de Dados
 
 O banco de dados SQLite (`factcheck.db`) possui atualmente uma tabela principal:
 
@@ -319,7 +254,7 @@ CREATE TABLE IF NOT EXISTS fact_checks (
 
 ---
 
-## 🧩 Detalhamento dos Serviços
+## Detalhamento dos Serviços
 
 ### `services/content_extractor.py`
 Responsável por receber uma URL e extrair seu conteúdo textual principal (título, corpo da matéria), utilizando a
@@ -338,8 +273,7 @@ veredito final, sobrepondo o resultado da Fact Check API quando o Gemini identif
 `"Falso"` ou `"Verdadeiro"` na resposta.
 
 ---
-
-## 🧠 Fluxo de Decisão do Veredito
+## Fluxo de Decisão do Veredito
 
 A lógica de decisão implementada em `app.py` segue a seguinte prioridade:
 
@@ -357,84 +291,19 @@ A lógica de decisão implementada em `app.py` segue a seguinte prioridade:
 > 💡 Essa abordagem de **duas camadas** (API de fact-checking + IA generativa) busca aumentar a cobertura de
 > verificação, já que nem toda afirmação possui checagem prévia disponível publicamente.
 
----
-
-## 🚀 Deploy em Produção
-
-Sugestão de checklist para colocar a aplicação em produção:
-
-- [ ] Configurar variáveis de ambiente via serviço de *secrets* (Render, Railway, Heroku, AWS Secrets Manager etc.);
-- [ ] Substituir `debug=True` por configuração baseada em ambiente (`FLASK_ENV=production`);
-- [ ] Servir a aplicação via **Gunicorn** atrás de um proxy reverso (Nginx);
-- [ ] Migrar o SQLite para um banco mais robusto (PostgreSQL/MySQL) caso o volume de acessos cresça;
-- [ ] Implementar HTTPS (Let's Encrypt ou certificado gerenciado pela plataforma de deploy);
-- [ ] Adicionar *rate limiting* nas rotas públicas, especialmente em `/check`.
-
-Exemplo de `Procfile` (para plataformas como Heroku/Railway):
-
-```
-web: gunicorn app:app
-```
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Autenticação de usuários e histórico individual de checagens
-- [ ] Cache de resultados para textos/URLs já verificados
-- [ ] Suporte a múltiplos idiomas na análise da IA
-- [ ] Exportação do histórico em CSV/PDF
-- [ ] Painel administrativo com estatísticas (% de fake news detectadas, fontes mais checadas etc.)
-- [ ] Testes automatizados (unitários e de integração)
-- [ ] Containerização com Docker e Docker Compose
-- [ ] Pipeline de CI/CD (GitHub Actions)
-- [ ] Migração do SQLite para PostgreSQL em produção
-
----
-
-## ⚠️ Limitações Conhecidas
+## Limitações Conhecidas
 
 - O banco de dados **SQLite** não é recomendado para alta concorrência em produção;
 - A extração de conteúdo via `newspaper3k` pode falhar em sites com paywall, JavaScript pesado ou bloqueio de scraping;
-- O veredito depende da qualidade e disponibilidade das respostas das APIs externas (Google Fact Check e Gemini),
-  podendo haver limites de cota (*rate limits*) e custos associados ao uso da API do Gemini;
 - Resultados de IA generativa podem conter imprecisões — a ferramenta deve ser usada como **apoio**, não como
   fonte definitiva de verdade.
 
----
+## Boas Práticas e Convenções
 
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Para colaborar:
-
-1. Faça um **fork** do repositório;
-2. Crie uma branch para sua feature/correção: `git checkout -b feature/minha-feature`;
-3. Faça commit das suas alterações: `git commit -m "feat: descrição da alteração"`;
-4. Envie para o seu fork: `git push origin feature/minha-feature`;
-5. Abra um **Pull Request** explicando as mudanças propostas.
-
-### Convenção de commits sugerida
-
-```
-feat:     nova funcionalidade
-fix:      correção de bug
-docs:     alterações em documentação
-style:    formatação, sem alteração de lógica
-refactor: refatoração de código
-test:     adição/ajuste de testes
-chore:    tarefas de manutenção
-```
-
----
-
-## 📐 Boas Práticas e Convenções
-
-- Mantenha as chaves de API **fora do controle de versão** (uso obrigatório do `.env` + `.gitignore`);
-- Centralize integrações externas dentro da pasta `services/`, mantendo `app.py` o mais "magro" possível (apenas
+- Mantive as chaves de API **fora do controle de versão** (uso obrigatório do `.env` + `.gitignore`);
+- Centralizei integrações externas dentro da pasta `services/`, mantendo `app.py` o mais "magro" possível (apenas
   orquestração de rotas);
-- Ao adicionar novas tabelas, centralize o schema em `database.py`;
-- Prefira *type hints* e *docstrings* em novas funções Python para facilitar a manutenção.
-
+- Ao adicionar novas tabelas, centralizei o schema em `database.py`;
 ---
 
 ## ❓ FAQ
@@ -450,19 +319,8 @@ online.
 Sim, mas será necessário adaptar `database.py` para o driver do banco escolhido (ex: `psycopg2` para PostgreSQL).
 
 **4. O resultado da IA é 100% confiável?**
-Não. O Gemini é utilizado como uma camada complementar de análise e pode cometer erros — o ideal é sempre confrontar
-o resultado com fontes oficiais de fact-checking.
-
----
-
-## 📄 Licença
-
-Este projeto é distribuído sob a licença **MIT**. Sinta-se livre para usar, modificar e distribuir, mantendo os
-créditos ao autor original.
-
-```
-MIT License — veja o arquivo LICENSE (se disponível) para mais detalhes.
-```
+Apesar de uma boa taxa de acerto, para assuntos mais complexos e ambiguos, o resultado pode não ser tão preciso e está sempre
+passivel de melhora, por isso, o próprio sistema recomenda fontes confiáveis e credenciadas para maiores informações
 
 ---
 
